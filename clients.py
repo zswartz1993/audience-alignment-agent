@@ -451,8 +451,6 @@ async def get_rt_movie_id(rt_movie_url: str, kind: str = "all-audience") -> str 
 
 async def get_movie_ids_concurrent_simple(movies: list[dict], concurrency: int = 4) -> dict:
     sem = httpx.AsyncSemaphore(concurrency) if hasattr(httpx, "AsyncSemaphore") else None
-    # If httpx.AsyncSemaphore isn't available, use asyncio.Semaphore in main
-    # We'll keep logic in main using asyncio.Semaphore; here keep it simple.
     raise RuntimeError("Call get_movie_ids_concurrent_simple in main.py where asyncio.Semaphore is available.")
 
 async def fetch_rtcf_page(client: httpx.AsyncClient, movie_id: str, after: str = "", page_count: int = 10, verified: bool = False):
