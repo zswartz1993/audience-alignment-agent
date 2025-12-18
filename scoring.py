@@ -31,7 +31,7 @@ def similarity_semantic(query_embedding, review_embeddings):
     return review_embeddings @ query_embedding
 
 def similarity_sentiment(query_score, review_scores):
-    # in [-1,1], turn into similarity in [0,1] via distance to query
+    # convert difference to [-1, 1]
     return 1.0 - np.abs(query_score - review_scores)
 
 def similarity_composite(sim_sem, sim_sent):

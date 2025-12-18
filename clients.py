@@ -337,7 +337,6 @@ def build_discover_params(movie_filter: dict, genre_map: dict) -> dict:
     if mins:
         params["vote_average.gte"] = round(min(mins) / 10.0, 1)
 
-    # Global sanity filter (you can tune)
     params["vote_count.gte"] = 1000
 
     apply_production_level(params, movie_filter.get("production_level", "unknown"))
