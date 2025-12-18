@@ -2,18 +2,18 @@
 
 ## Overview
 
-This project implements a lightweight expert agent that recommends movies based on how closely Rotten Tomatoes audience reviews align with either:
-1. **The user's description of a movie**
-2. **An AI description of a movie based on general audience reception**
+This project implements a lightweight expert agent that recommends movies based on how closely Rotten Tomatoes audience reviews align with user input. User input can take on two forms:
+1. **A movie description**
+2. **A movie title**
 
 Rather than relying solely on an LLM to “pick” a movie, the system:
-1. Uses an LLM to **interpret and normalize intent**
-2. Retrieves **candidate movies** from an LLM
-3. Retrieves **candidate movies** from TMDB
-4. Collects **real audience reviews** from Rotten Tomatoes
-5. Measures **semantic + sentiment alignment**
-6. Ranks movies using **explainable alignment metrics**
-7. Summarizes the most aligned reviews for interpretability
+1. Uses an LLM to **interpret user intent**
+3. Retrieves **candidate movies** from an LLM
+4. Retrieves **candidate movies** from TMDB
+5. Collects **real audience reviews** from Rotten Tomatoes
+6. Measures **semantic + sentiment alignment with user intent**
+7. Ranks movies using **explainable alignment metrics**
+8. Summarizes the most aligned reviews for interpretability
 
 The result is a recommendation pipeline that is:
 - data-driven
