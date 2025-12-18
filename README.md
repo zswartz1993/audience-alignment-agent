@@ -56,7 +56,7 @@ They are **not** used for scoring, ranking, or evaluation.
 
 ### Decisions are made using measurable signals
 Movie ranking is driven by:
-- semantic similarity between user intent and reviews
+- semantic similarity between user intent and audience reviews
 - sentimental similarity between user intent and audience reviews
 - distributional metrics over real review data
 
