@@ -92,7 +92,7 @@ async def run_pipeline(input_text: str, topn: int = 3):
         print(f"    * {m['title']} ({m['release_date']})  ★{m['vote_average']}  votes={m['vote_count']}  pop={m['popularity']:.1f}")
     print()
 
-    # 3) Union candidates (titles only)
+    # 3) Union candidates
     titles = set([d["title"] for d in tmdb_movies] + [d["title"] for d in llm_recs])
     movies = [{"title": t} for t in titles if t != out["normalized_title"]]
 
@@ -106,12 +106,12 @@ async def run_pipeline(input_text: str, topn: int = 3):
         print("No RT movie IDs resolved. (RT URL lookup / Playwright capture likely failed.)")
         return
 
-    # 5) Fetch reviews (async)
+    # 5) Fetch reviews
     print('Fetching RT audience reviews...')
     print()
     audience_reviews = await collect_many(list(movie_ids.values()), max_reviews=100, concurrency=4)
 
-    # 6) Build per-movie embeddings + sentiment
+    # 6) Compute review embeddings + sentiment
     print('Computing review embeddings and sentiment...')
     print()
     movie_data = {}
